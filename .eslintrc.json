@@ -39,7 +39,16 @@
     "no-restricted-imports": [
       "error",
       {
-        "patterns": ["@/features/*/*"]
+        "patterns": [
+          {
+            "group": ["@/features/*/*"],
+            "message": "avoid importing from features"
+          },
+          {
+            "group": ["@testing-library/*"],
+            "message": "Please use @/utils/test-utils instead."
+          }
+        ]
       }
     ],
     "import/no-anonymous-default-export": "off",
@@ -140,6 +149,22 @@
       "files": ["*.stories.tsx"],
       "rules": {
         "@typescript-eslint/consistent-type-assertions": "off"
+      }
+    },
+    {
+      "files": ["test-utils.ts"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["@/features/*/*"],
+                "message": "avoid importing from features"
+              }
+            ]
+          }
+        ]
       }
     }
   ]
