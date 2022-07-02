@@ -152,7 +152,7 @@
       }
     },
     {
-      "files": ["test-utils.ts"],
+      "files": ["test-utils.ts", "*/test/setup.ts"],
       "rules": {
         "no-restricted-imports": [
           "error",
