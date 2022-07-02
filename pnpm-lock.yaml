@@ -12,6 +12,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.4
   '@testing-library/react': ^13.3.0
   '@testing-library/user-event': ^14.2.1
+  '@twind/forms': ^0.1.4
   '@twind/next': ^1.0.9
   '@types/node': ^18.0.0
   '@types/react': ^18.0.14
@@ -41,6 +42,7 @@ specifiers:
   vitest: ^0.16.0
 
 dependencies:
+  '@twind/forms': 0.1.4_ec74xkl7ldklxgjcg776zfoxcm
   '@twind/next': 1.0.9_7coddnm2vsobubzxwdcb6enfzq
   next: 12.2.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -4451,6 +4453,20 @@ packages:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
     dev: true
+
+  /@twind/forms/0.1.4_ec74xkl7ldklxgjcg776zfoxcm:
+    resolution: {integrity: sha512-OwI3xd0NTDlQo2M9L3NDVnngBU/mGgHaIAif91taGfiN4zpbwvYLSpUFIeBlcD8XeGvdFQv07T5hxavFRsKa7Q==}
+    engines: {node: '>=10.13'}
+    peerDependencies:
+      twind: '>=0.14.4'
+      typescript: ^4.1.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      twind: 0.16.17_typescript@4.7.4
+      typescript: 4.7.4
+    dev: false
 
   /@twind/next/1.0.9_7coddnm2vsobubzxwdcb6enfzq:
     resolution: {integrity: sha512-WzIavVwk/7vDLwbpvDaTLnjHfC53UT7+rnfZLf8TrEM5uoG4u0u/hhyP20NYLMi6WFVS0BBQtI+xbL/X7DEPUg==}

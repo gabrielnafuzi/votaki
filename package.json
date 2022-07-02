@@ -25,6 +25,7 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@twind/forms": "^0.1.4",
     "@twind/next": "^1.0.9",
     "next": "12.2.0",
     "react": "18.2.0",
