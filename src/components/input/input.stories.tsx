@@ -18,6 +18,11 @@ export default {
     isInvalid: { control: false },
     disabled: { control: 'boolean' },
   },
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
+  },
 } as ComponentMeta<typeof Input>
 
 export const Default: ComponentStory<typeof Input> = (args) => (
