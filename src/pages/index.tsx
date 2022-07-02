@@ -1,9 +1,9 @@
-import { tw } from 'twind'
+import { Button } from '@/components/button'
 
 export default function HomePage() {
   return (
     <div>
-      <button className={tw(`bg-purple-500`)}>Hello</button>
+      <Button>Hello</Button>
     </div>
   )
 }

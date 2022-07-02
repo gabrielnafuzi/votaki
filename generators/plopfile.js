@@ -27,6 +27,11 @@ module.exports = (
         path: '../src/components/{{kebabCase name}}/{{kebabCase name}}.spec.tsx',
         templateFile: 'templates/component.spec.tsx.hbs',
       },
+      {
+        type: 'add',
+        path: '../src/components/{{kebabCase name}}/index.ts',
+        templateFile: 'templates/index.ts.hbs',
+      },
     ],
   })
 }
