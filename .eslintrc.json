@@ -134,5 +134,13 @@
       { "blankLine": "never", "prev": "case", "next": "multiline-block-like" },
       { "blankLine": "never", "prev": "multiline-block-like", "next": "case" }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "@typescript-eslint/consistent-type-assertions": "off"
+      }
+    }
+  ]
 }
