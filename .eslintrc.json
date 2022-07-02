@@ -20,6 +20,13 @@
     "plugin:@next/next/recommended",
     "next/core-web-vitals"
   ],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "eslint-plugin-import-helpers",
+    "jsx-a11y"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -28,13 +35,6 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "eslint-plugin-import-helpers",
-    "tailwindcss"
-  ],
   "rules": {
     "no-restricted-imports": [
       "error",
@@ -42,7 +42,16 @@
         "patterns": ["@/features/*/*"]
       }
     ],
+    "import/no-anonymous-default-export": "off",
     "no-console": "warn",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
@@ -90,7 +99,8 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          ["/^react(-native)?$/"],
+          ["/^react/"],
+          ["/^next/"],
           ["module"],
           ["/^@//"],
           ["/^~/"],

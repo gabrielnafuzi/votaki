@@ -4,6 +4,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.4
   '@testing-library/react': ^13.3.0
   '@testing-library/user-event': ^14.2.1
+  '@twind/next': ^1.0.9
   '@types/node': ^18.0.0
   '@types/react': ^18.0.14
   '@types/testing-library__jest-dom': ^5.14.5
@@ -14,6 +15,7 @@ specifiers:
   eslint-config-next: 12.2.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-import-helpers: ^1.2.1
+  eslint-plugin-jsx-a11y: ^6.6.0
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.30.1
   eslint-plugin-react-hooks: ^4.6.0
@@ -24,13 +26,16 @@ specifiers:
   prettier: ^2.7.1
   react: 18.2.0
   react-dom: 18.2.0
+  twind: ^0.16.17
   typescript: ^4.7.4
   vitest: ^0.16.0
 
 dependencies:
+  '@twind/next': 1.0.9_7coddnm2vsobubzxwdcb6enfzq
   next: 12.2.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  twind: 0.16.17_typescript@4.7.4
 
 devDependencies:
   '@testing-library/jest-dom': 5.16.4
@@ -46,6 +51,7 @@ devDependencies:
   eslint-config-next: 12.2.0_4x5o4skxv6sl53vpwefgt23khm
   eslint-config-prettier: 8.5.0_eslint@8.19.0
   eslint-plugin-import-helpers: 1.2.1_eslint@8.19.0
+  eslint-plugin-jsx-a11y: 6.6.0_eslint@8.19.0
   eslint-plugin-prettier: 4.2.1_7uxdfn2xinezdgvmbammh6ev5i
   eslint-plugin-react: 7.30.1_eslint@8.19.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.19.0
@@ -635,6 +641,24 @@ packages:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
     dev: true
+
+  /@twind/next/1.0.9_7coddnm2vsobubzxwdcb6enfzq:
+    resolution: {integrity: sha512-WzIavVwk/7vDLwbpvDaTLnjHfC53UT7+rnfZLf8TrEM5uoG4u0u/hhyP20NYLMi6WFVS0BBQtI+xbL/X7DEPUg==}
+    engines: {node: '>=10.13'}
+    peerDependencies:
+      next: 10.x || 11.x || 12.x
+      react: ^16.6.0 || ^17
+      twind: '>=0.15.9 <2'
+      typescript: ^4.1.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      next: 12.2.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      twind: 0.16.17_typescript@4.7.4
+      typescript: 4.7.4
+    dev: false
 
   /@types/aria-query/4.2.2:
     resolution: {integrity: sha512-HnYpAE1Y6kRyKM/XkEuiRQhTHvkzMBurTHnpFLYLBGPIylZNPs9jJcuOOYWxPLJCSEtmZT0Y8rHDokKN7rRTig==}
@@ -1235,7 +1259,6 @@ packages:
 
   /csstype/3.1.0:
     resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
-    dev: true
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -1347,12 +1370,39 @@ packages:
     resolution: {integrity: sha512-NMt+m9zFMPZe0JcY9gN224Qvk6qLIdqex29clBvc/y75ZBX9YA9wNK3frsYvu2DI1xcCIwxwnX+TlsJ2DSOADg==}
     dev: true
 
+  /dom-serializer/1.4.1:
+    resolution: {integrity: sha512-VHwB3KfrcOOkelEG2ZOfxqLZdfkil8PtJi4P8N2MMXucZq2yLp75ClViUlOVwyoHEDjYU433Aq+5zWP61+RGag==}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 4.3.1
+      entities: 2.2.0
+    dev: false
+
+  /domelementtype/2.3.0:
+    resolution: {integrity: sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==}
+    dev: false
+
   /domexception/4.0.0:
     resolution: {integrity: sha512-A2is4PLG+eeSfoTMA95/s4pvAoSo2mKtiM5jlHkAVewmiO8ISFTFKZjH7UAM1Atli/OT/7JHOrJRJiMKUZKYBw==}
     engines: {node: '>=12'}
     dependencies:
       webidl-conversions: 7.0.0
     dev: true
+
+  /domhandler/4.3.1:
+    resolution: {integrity: sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ==}
+    engines: {node: '>= 4'}
+    dependencies:
+      domelementtype: 2.3.0
+    dev: false
+
+  /domutils/2.8.0:
+    resolution: {integrity: sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A==}
+    dependencies:
+      dom-serializer: 1.4.1
+      domelementtype: 2.3.0
+      domhandler: 4.3.1
+    dev: false
 
   /eastasianwidth/0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -1369,6 +1419,10 @@ packages:
   /emoji-regex/9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
+
+  /entities/2.2.0:
+    resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
+    dev: false
 
   /entities/4.3.1:
     resolution: {integrity: sha512-o4q/dYJlmyjP2zfnaWDUC6A3BQFmVTX+tZPezK7k0GLSU9QYCauscf5Y+qcEPzKL+EixVouYDgLQK5H9GrLpkg==}
@@ -2240,6 +2294,15 @@ packages:
     dependencies:
       whatwg-encoding: 2.0.0
     dev: true
+
+  /htmlparser2/6.1.0:
+    resolution: {integrity: sha512-gyyPk6rgonLFEDGoeRgQNaEUvdJ4ktTmmUh/h2t7s+M8oPpIPxgNACWa+6ESR57kXstwqPiCut0V8NRpcwgU7A==}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 4.3.1
+      domutils: 2.8.0
+      entities: 2.2.0
+    dev: false
 
   /http-proxy-agent/5.0.0:
     resolution: {integrity: sha512-n2hY8YdoRE1i7r6M0w9DIw5GgZN0G25P8zLCRQ8rjXtTU3vsNFBI/vWK/UIeE6g5MUUz6avwAPXmL6Fy9D/90w==}
@@ -3411,6 +3474,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /style-vendorizer/2.2.3:
+    resolution: {integrity: sha512-/VDRsWvQAgspVy9eATN3z6itKTuyg+jW1q6UoTCQCFRqPDw8bi3E1hXIKnGw5LvXS2AQPuJ7Af4auTLYeBOLEg==}
+    dev: false
+
   /styled-jsx/5.0.2_react@18.2.0:
     resolution: {integrity: sha512-LqPQrbBh3egD57NBcHET4qcgshPks+yblyhPlH2GY8oaDgKs8SK4C3dBh3oSJjgzJ3G5t1SYEZGHkP+QEpX9EQ==}
     engines: {node: '>= 12.0.0'}
@@ -3521,6 +3588,21 @@ packages:
       tslib: 1.14.1
       typescript: 4.7.4
     dev: true
+
+  /twind/0.16.17_typescript@4.7.4:
+    resolution: {integrity: sha512-dBKm8+ncJcIALiqBRLxA/krFEwUSjnzR+N73eKgqPtVPJqfLpkajWwKWL5xEpEQ5ypS3ffa0jJjH3/eIeuA3pw==}
+    engines: {node: '>=10.13'}
+    peerDependencies:
+      typescript: ^4.1.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      csstype: 3.1.0
+      htmlparser2: 6.1.0
+      style-vendorizer: 2.2.3
+      typescript: 4.7.4
+    dev: false
 
   /type-check/0.3.2:
     resolution: {integrity: sha512-ZCmOJdvOWDBYJlzAoFkC+Q0+bUyEOS1ltgp1MGU03fqHG+dbi9tBFU2Rd9QKiDZFAYrhPh2JUf7rZRIuHRKtOg==}
