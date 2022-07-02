@@ -1,0 +1,15 @@
+import { expect, it, describe } from 'vitest'
+
+import { render, screen } from '@/utils/test-utils'
+
+import { {{pascalCase name}} } from './{{kebabCase name}}'
+
+describe('<{{pascalCase name}} />', () => {
+  it('renders the heading', () => {
+    render(<{{pascalCase name}} />)
+
+    expect(
+      screen.getByRole('heading', { name: /{{pascalCase name}}/i })
+    ).toBeInTheDocument()
+  })
+})

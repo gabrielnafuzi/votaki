@@ -1,0 +1,12 @@
+import type { ComponentMeta, ComponentStory } from '@storybook/react'
+
+import { {{pascalCase name}} } from './{{kebabCase name}}'
+
+export default {
+  title: '{{pascalCase name}}',
+  component: {{pascalCase name}},
+} as ComponentMeta<typeof {{pascalCase name}}>
+
+export const Default: ComponentStory<typeof {{pascalCase name}}> = () => (
+  <{{pascalCase name}} />
+)
