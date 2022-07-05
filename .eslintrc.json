@@ -152,7 +152,7 @@
       }
     },
     {
-      "files": ["test-utils.ts", "*/test/setup.ts"],
+      "files": ["test-utils.tsx", "*/test/setup.ts"],
       "rules": {
         "no-restricted-imports": [
           "error",
@@ -165,6 +165,12 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "files": ["*.spec.tsx", "*.test.tsx"],
+      "rules": {
+        "@next/next/no-img-element": "off"
       }
     }
   ]

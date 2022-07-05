@@ -25,6 +25,7 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^0.1.4",
     "@twind/forms": "^0.1.4",
     "@twind/next": "^1.0.9",
     "next": "12.2.0",
