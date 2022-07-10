@@ -25,7 +25,7 @@ describe('<Input />', () => {
     expect(screen.getByText('Right Element')).toBeInTheDocument()
   })
 
-  it("renders the error message when it's passed and isValid is true", () => {
+  it("renders the error message when it's passed and isInvalid is true", () => {
     render(
       <Input name="with-error-message" errorMessage="Error Message" isInvalid />
     )

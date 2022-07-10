@@ -43,7 +43,7 @@ export const withRightElement: ComponentStory<typeof Input> = (args) => (
     <Input
       {...args}
       rightElement={
-        <div className="bg-red-200 w-6 h-6 rounded-md flex items-center justify-center cursor-pointer">
+        <div className="bg-red-200 w-6 h-6 rounded-md flex items-center justify-center">
           <div className="bg-red-500 w-3 h-3 rounded-full" />
         </div>
       }

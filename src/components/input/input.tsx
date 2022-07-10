@@ -7,6 +7,7 @@ import {
 
 import { tw } from 'twind'
 
+import { FormErrorMessage } from '../form-error-message'
 import { Label } from '../label'
 import * as classes from './input.styles'
 
@@ -22,10 +23,12 @@ const BaseInput: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   { name, label, disabled, isInvalid, errorMessage, rightElement, ...props },
   ref
 ) => {
-  const inputClasses = tw(
+  const disabledStyles = disabled && classes.disabled
+
+  const inputWrapperClasses = tw(
     classes.inputWrapper,
     isInvalid && classes.inputError,
-    disabled && classes.inputDisabled
+    disabledStyles
   )
 
   const showErrorMessage = isInvalid && !!errorMessage
@@ -38,10 +41,10 @@ const BaseInput: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         </Label>
       )}
 
-      <div className={inputClasses}>
+      <div className={inputWrapperClasses}>
         <input
           ref={ref}
-          className={classes.input}
+          className={tw(classes.input, disabledStyles)}
           disabled={disabled}
           name={name}
           {...(label ? { id: name } : {})}
@@ -49,13 +52,13 @@ const BaseInput: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
         />
 
         {!!rightElement && (
-          <div className={classes.rightElementWrapper}>{rightElement}</div>
+          <div className={tw(classes.rightElementWrapper, disabledStyles)}>
+            {rightElement}
+          </div>
         )}
       </div>
 
-      {showErrorMessage && (
-        <p className={classes.errorMessage}>{errorMessage}</p>
-      )}
+      {showErrorMessage && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
     </div>
   )
 }

@@ -9,6 +9,7 @@ export default {
         ...colors,
         primary: colors.violet[600],
         error: colors.red[500],
+        subtleError: '#fff7f7',
         success: colors.emerald[500],
       },
     },
