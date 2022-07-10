@@ -6,6 +6,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        ...colors,
         primary: colors.violet[600],
         error: colors.red[500],
         success: colors.emerald[500],
@@ -15,5 +16,8 @@ export default {
   plugins: {
     forms,
     'form-input': formInput,
+  },
+  variants: {
+    'data-disabled': '&[data-disabled]',
   },
 }

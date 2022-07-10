@@ -7,6 +7,7 @@ import {
 
 import { tw } from 'twind'
 
+import { Label } from '../label'
 import * as classes from './input.styles'
 
 type InputProps = {
@@ -27,15 +28,14 @@ const BaseInput: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     disabled && classes.inputDisabled
   )
 
-  const labelClasses = tw(classes.label, isInvalid && classes.labelError)
   const showErrorMessage = isInvalid && !!errorMessage
 
   return (
     <div>
       {!!label && (
-        <label className={labelClasses} htmlFor={name}>
+        <Label isInvalid={isInvalid} htmlFor={name}>
           {label}
-        </label>
+        </Label>
       )}
 
       <div className={inputClasses}>
