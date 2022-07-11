@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -s ./public",
     "build": "next build",
     "dev": "next dev",
     "generate": "pnpm plop --plopfile generators/plopfile.js",
@@ -55,6 +55,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.3",
     "@typescript-eslint/parser": "^5.30.3",
     "@vitejs/plugin-react": "^1.3.2",
+    "chromatic": "^6.7.0",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "^8.5.0",
