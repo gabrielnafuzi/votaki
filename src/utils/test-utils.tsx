@@ -10,11 +10,9 @@ const customRender = (ui: React.ReactElement, options = {}) =>
 
 export const mockComponentWithChildren = ({
   children,
-  ...props
 }: {
   children: React.ReactNode
-  [key: string]: unknown
-}) => <div {...props}>{children}</div>
+}) => <div>{children}</div>
 
 export * from '@testing-library/react'
 export { default as userEvent } from '@testing-library/user-event'
