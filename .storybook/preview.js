@@ -12,6 +12,9 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  darkMode: {
+    current: 'dark',
+  },
   backgrounds: {
     default: 'light',
     values: [
