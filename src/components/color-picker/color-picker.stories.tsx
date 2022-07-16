@@ -7,6 +7,7 @@ export default {
   component: ColorPicker,
   parameters: {
     layout: 'centered',
+    options: { showPanel: false },
   },
 } as ComponentMeta<typeof ColorPicker>
 
