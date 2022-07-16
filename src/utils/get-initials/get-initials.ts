@@ -5,5 +5,5 @@ export const getInitials = (name: string) => {
     return `${firstName.charAt(0)}${lastName.charAt(0)}`
   }
 
-  return firstName.charAt(0)
+  return firstName?.charAt(0) ?? ''
 }

@@ -29,7 +29,7 @@ export const Default: ComponentStory<typeof Select> = (args) => (
 )
 
 Default.args = {
-  defaultValue: fruits[0].value,
+  defaultValue: fruits[0]?.value,
   label: 'Select a fruit',
   name: 'select-storybook-fruit',
 }
