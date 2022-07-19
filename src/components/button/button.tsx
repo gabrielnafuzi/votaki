@@ -15,7 +15,7 @@ type ButtonProps = {
   isLoading?: boolean
   fullWidth?: boolean
   icon?: JSX.Element
-} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'className'>
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const BaseButton: React.ForwardRefRenderFunction<
   HTMLButtonElement,
@@ -29,6 +29,7 @@ const BaseButton: React.ForwardRefRenderFunction<
     children,
     disabled = false,
     icon,
+    className,
     ...props
   },
   ref
@@ -36,6 +37,7 @@ const BaseButton: React.ForwardRefRenderFunction<
   const classes = tw`
     ${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles}
     ${fullWidth ? 'w-full' : 'w-auto'}
+    ${className}
   `
 
   return (
