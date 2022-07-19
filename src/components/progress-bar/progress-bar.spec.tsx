@@ -2,7 +2,7 @@ import { expect, it, describe } from 'vitest'
 
 import { render, screen } from '@/utils/test-utils'
 
-import { colorsToSelect } from '../common'
+import { pollColors } from '../common'
 import { ProgressBar } from './progress-bar'
 
 describe('<ProgressBar />', () => {
@@ -19,19 +19,19 @@ describe('<ProgressBar />', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders with first color of colorsToSelect by default', () => {
+  it('renders with first color of pollColors by default', () => {
     render(<ProgressBar value={40} />)
 
     expect(
       screen.getByRole('progressbar', { name: /40%/i }).firstChild
-    ).toHaveClass(`bg-[${colorsToSelect[0]}]`)
+    ).toHaveClass(`bg-[${pollColors[0]}]`)
   })
 
   it('renders with the other color', () => {
-    render(<ProgressBar value={40} color={colorsToSelect[2]} />)
+    render(<ProgressBar value={40} color={pollColors[2]} />)
 
     expect(
       screen.getByRole('progressbar', { name: /40%/i }).firstChild
-    ).toHaveClass(`bg-[${colorsToSelect[2]}]`)
+    ).toHaveClass(`bg-[${pollColors[2]}]`)
   })
 })

@@ -7,7 +7,7 @@ import {
   userEvent,
 } from '@/utils/test-utils'
 
-import { colorsToSelect } from '../common'
+import { pollColors } from '../common'
 import { ColorPicker } from './color-picker'
 
 vi.mock('@radix-ui/react-popover', async () => {
@@ -36,11 +36,11 @@ describe('<ColorPicker />', () => {
 
     render(<ColorPicker onChange={onChange} />)
 
-    const colorButton = getColorOptionElement(colorsToSelect[2])
+    const colorButton = getColorOptionElement(pollColors[2])
 
     await userEvent.click(colorButton)
 
-    expect(onChange).toHaveBeenCalledWith(colorsToSelect[2])
+    expect(onChange).toHaveBeenCalledWith(pollColors[2])
   })
 
   it('be accessible with tab', async () => {
@@ -53,15 +53,15 @@ describe('<ColorPicker />', () => {
     await userEvent.tab() // selects the trigger button
     await userEvent.tab() // selects the first color option
 
-    expect(getColorOptionElement(colorsToSelect[0])).toHaveFocus()
+    expect(getColorOptionElement(pollColors[0])).toHaveFocus()
 
     await userEvent.tab() // selects the second color option
     await userEvent.keyboard('{enter}')
 
-    expect(onChange).toHaveBeenCalledWith(colorsToSelect[1])
+    expect(onChange).toHaveBeenCalledWith(pollColors[1])
   })
 
-  it('renders all colorsToSelect correctly', async () => {
+  it('renders all pollColors correctly', async () => {
     render(<ColorPicker onChange={vi.fn} />)
 
     const selectableButtons = screen.getAllByRole('button', {
@@ -69,9 +69,9 @@ describe('<ColorPicker />', () => {
     })
 
     selectableButtons.forEach((button, idx) => {
-      expect(button.title).toBe(colorsToSelect[idx])
+      expect(button.title).toBe(pollColors[idx])
     })
 
-    expect(selectableButtons).toHaveLength(colorsToSelect.length)
+    expect(selectableButtons).toHaveLength(pollColors.length)
   })
 })

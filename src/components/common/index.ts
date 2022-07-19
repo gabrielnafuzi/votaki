@@ -1,1 +1,1 @@
-export * from './colors-to-select'
+export * from './poll-colors'

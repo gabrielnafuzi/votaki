@@ -1,6 +1,6 @@
 import * as colors from 'twind/colors'
 
-export const colorsToSelect = [
+export const pollColors = [
   colors.amber[300],
   colors.blue[500],
   colors.blueGray[400],
@@ -38,4 +38,4 @@ export const colorsToSelect = [
   colors.purple[300],
 ] as const
 
-export type ColorToSelect = typeof colorsToSelect[number]
+export type ColorToSelect = typeof pollColors[number]

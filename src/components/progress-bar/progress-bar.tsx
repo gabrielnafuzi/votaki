@@ -1,7 +1,7 @@
 import * as ProgressPrimitive from '@radix-ui/react-progress'
 import { tw } from 'twind'
 
-import { colorsToSelect, ColorToSelect } from '../common'
+import { pollColors, ColorToSelect } from '../common'
 
 type ProgressBarProps = {
   value?: number
@@ -13,7 +13,7 @@ type ProgressBarProps = {
 
 export const ProgressBar = ({
   value = 0,
-  color = colorsToSelect[0],
+  color = pollColors[0],
   ...props
 }: ProgressBarProps) => {
   return (
