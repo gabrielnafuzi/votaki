@@ -32,7 +32,7 @@ const BaseButton: React.ForwardRefRenderFunction<
     className,
     ...props
   },
-  ref
+  forwardedRef
 ) => {
   const classes = tw`
     ${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles}
@@ -44,7 +44,7 @@ const BaseButton: React.ForwardRefRenderFunction<
     <button
       aria-busy={isLoading}
       className={classes}
-      ref={ref}
+      ref={forwardedRef}
       disabled={isLoading || disabled}
       {...props}
     >
