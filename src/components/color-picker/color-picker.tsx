@@ -6,7 +6,7 @@ import { tw } from 'twind'
 import { getRandomItem } from '@/utils/get-random-item'
 
 import { CloseButton } from '../close-button'
-import { colorsToSelect, type ColorToSelect } from './colors-to-select'
+import { colorsToSelect, type ColorToSelect } from '../common'
 import { SelectableColor } from './partials'
 
 type ColorPickerProps = {

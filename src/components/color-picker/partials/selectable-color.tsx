@@ -1,6 +1,6 @@
 import { tw } from 'twind'
 
-import type { ColorToSelect } from '../colors-to-select'
+import type { ColorToSelect } from '@/components/common'
 
 type SelectableColorProps = {
   color: ColorToSelect

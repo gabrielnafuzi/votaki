@@ -7,8 +7,8 @@ import {
   userEvent,
 } from '@/utils/test-utils'
 
+import { colorsToSelect } from '../common'
 import { ColorPicker } from './color-picker'
-import { colorsToSelect } from './colors-to-select'
 
 vi.mock('@radix-ui/react-popover', async () => {
   const radixPopover = await vi.importActual<Record<string, unknown>>(

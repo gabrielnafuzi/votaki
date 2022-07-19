@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { colorsToSelect } from '../color-picker/colors-to-select'
+import { colorsToSelect } from '../common'
 import { ProgressBar } from './progress-bar'
 
 export default {
