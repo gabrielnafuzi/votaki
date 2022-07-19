@@ -1,11 +1,11 @@
 import * as ProgressPrimitive from '@radix-ui/react-progress'
 import { tw } from 'twind'
 
-import { pollColors, ColorToSelect } from '../common'
+import { pollColors, PollColors } from '../common'
 
 type ProgressBarProps = {
   value?: number
-  color?: ColorToSelect
+  color?: PollColors
 } & Omit<
   ProgressPrimitive.ProgressProps,
   'asChild' | 'value' | 'max' | 'className'

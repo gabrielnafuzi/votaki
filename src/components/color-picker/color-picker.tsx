@@ -6,12 +6,12 @@ import { tw } from 'twind'
 import { getRandomItem } from '@/utils/get-random-item'
 
 import { CloseButton } from '../close-button'
-import { pollColors, type ColorToSelect } from '../common'
+import { pollColors, type PollColors } from '../common'
 import { SelectableColor } from './partials'
 
 type ColorPickerProps = {
-  initialColor?: ColorToSelect
-  onChange: (color: ColorToSelect) => void
+  initialColor?: PollColors
+  onChange: (color: PollColors) => void
 }
 
 const randomColor = getRandomItem(pollColors)
@@ -21,7 +21,7 @@ export const ColorPicker = ({ initialColor, onChange }: ColorPickerProps) => {
   const [color, setColor] = useState(initialColor ?? randomColor)
 
   const handleOnChangeColor = useCallback(
-    (selectedColor: ColorToSelect) => {
+    (selectedColor: PollColors) => {
       setColor(selectedColor)
       setIsPopoverOpen(false)
       onChange(selectedColor)
@@ -62,12 +62,12 @@ export const ColorPicker = ({ initialColor, onChange }: ColorPickerProps) => {
           </p>
 
           <div className={tw`grid grid-cols-5 gap-2 mt-2`}>
-            {pollColors.map((colorToSelect) => (
+            {pollColors.map((PollColors) => (
               <SelectableColor
-                key={`color-to-select-${colorToSelect}`}
-                color={colorToSelect}
+                key={`color-to-select-${PollColors}`}
+                color={PollColors}
                 onClick={handleOnChangeColor}
-                isSelected={colorToSelect === color}
+                isSelected={PollColors === color}
               />
             ))}
           </div>

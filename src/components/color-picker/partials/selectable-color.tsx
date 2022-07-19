@@ -1,10 +1,10 @@
 import { tw } from 'twind'
 
-import type { ColorToSelect } from '@/components/common'
+import type { PollColors } from '@/components/common'
 
 type SelectableColorProps = {
-  color: ColorToSelect
-  onClick: (color: ColorToSelect) => void
+  color: PollColors
+  onClick: (color: PollColors) => void
   isSelected: boolean
 }
 

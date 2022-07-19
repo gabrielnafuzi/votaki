@@ -38,4 +38,4 @@ export const pollColors = [
   colors.purple[300],
 ] as const
 
-export type ColorToSelect = typeof pollColors[number]
+export type PollColors = typeof pollColors[number]
