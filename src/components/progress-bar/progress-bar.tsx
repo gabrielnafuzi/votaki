@@ -1,13 +1,19 @@
 import * as ProgressPrimitive from '@radix-ui/react-progress'
 import { tw } from 'twind'
 
+import { colorsToSelect, ColorToSelect } from '../common'
+
 type ProgressBarProps = {
   value?: number
-} & Omit<ProgressPrimitive.ProgressProps, 'asChild' | 'value' | 'max'>
+  color?: ColorToSelect
+} & Omit<
+  ProgressPrimitive.ProgressProps,
+  'asChild' | 'value' | 'max' | 'className'
+>
 
 export const ProgressBar = ({
   value = 0,
-  className,
+  color = colorsToSelect[0],
   ...props
 }: ProgressBarProps) => {
   return (
@@ -18,7 +24,7 @@ export const ProgressBar = ({
       {...props}
     >
       <ProgressPrimitive.ProgressIndicator
-        className={tw`w-[${value}%] h-full transition-all duration-200 bg-primary ${className}`}
+        className={tw`w-[${value}%] h-full transition-all duration-200 bg-[${color}]`}
       />
     </ProgressPrimitive.Root>
   )
