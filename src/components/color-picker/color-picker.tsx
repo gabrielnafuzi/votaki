@@ -1,11 +1,11 @@
 import { useCallback, useState } from 'react'
 
-import { Cross2Icon } from '@radix-ui/react-icons'
 import * as Popover from '@radix-ui/react-popover'
 import { tw } from 'twind'
 
 import { getRandomItem } from '@/utils/get-random-item'
 
+import { CloseButton } from '../close-button'
 import { colorsToSelect, type ColorToSelect } from './colors-to-select'
 import { SelectableColor } from './partials'
 
@@ -79,14 +79,8 @@ export const ColorPicker = ({ initialColor, onChange }: ColorPickerProps) => {
           className={tw`text-white fill-current`}
         />
 
-        <Popover.Close
-          autoFocus
-          aria-label="Close"
-          className={tw`
-             h-6 w-6 inline-flex items-center justify-center text-violet-800 absolute top-1.5 right-1.5
-             rounded-full transition-colors hover:bg-violet-200 focus:(ring-2 ring-violet-300 outline-none)`}
-        >
-          <Cross2Icon />
+        <Popover.Close autoFocus asChild aria-label="Close">
+          <CloseButton className={tw`absolute top-1.5 right-1.5`} />
         </Popover.Close>
       </Popover.Content>
     </Popover.Root>
