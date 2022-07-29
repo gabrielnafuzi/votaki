@@ -1,5 +1,9 @@
 {
-  "ignorePatterns": ["node_modules/", "out/", "build/"],
+  "ignorePatterns": [
+    "node_modules/",
+    "out/",
+    "build/"
+  ],
   "env": {
     "browser": true,
     "es2020": true,
@@ -41,24 +45,44 @@
       {
         "patterns": [
           {
-            "group": ["@/features/*/*"],
+            "group": [
+              "@/features/*/*"
+            ],
             "message": "avoid importing from features"
           },
           {
-            "group": ["@testing-library/*"],
+            "group": [
+              "@testing-library/*"
+            ],
             "message": "Please use @/utils/test-utils instead."
           }
         ]
       }
     ],
     "import/no-anonymous-default-export": "off",
-    "no-console": "warn",
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "error",
+          "warn"
+        ]
+      }
+    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "hrefLeft",
+          "hrefRight"
+        ],
+        "aspects": [
+          "invalidHref",
+          "preferButton"
+        ]
       }
     ],
     "react-hooks/rules-of-hooks": "error",
@@ -94,7 +118,9 @@
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/ban-ts-comment": [
       "error",
-      { "ts-ignore": "allow-with-description" }
+      {
+        "ts-ignore": "allow-with-description"
+      }
     ],
     "@typescript-eslint/consistent-type-assertions": [
       "error",
@@ -108,14 +134,31 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          ["/^react/"],
-          ["/^next/"],
-          ["module"],
-          ["/^@//"],
-          ["/^~/"],
-          ["parent", "sibling", "index"]
+          [
+            "/^react/"
+          ],
+          [
+            "/^next/"
+          ],
+          [
+            "module"
+          ],
+          [
+            "/^@//"
+          ],
+          [
+            "/^~/"
+          ],
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
         ],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
       }
     ],
     "padding-line-between-statements": [
@@ -140,26 +183,41 @@
           "return"
         ]
       },
-      { "blankLine": "never", "prev": "case", "next": "multiline-block-like" },
-      { "blankLine": "never", "prev": "multiline-block-like", "next": "case" }
+      {
+        "blankLine": "never",
+        "prev": "case",
+        "next": "multiline-block-like"
+      },
+      {
+        "blankLine": "never",
+        "prev": "multiline-block-like",
+        "next": "case"
+      }
     ]
   },
   "overrides": [
     {
-      "files": ["*.stories.tsx"],
+      "files": [
+        "*.stories.tsx"
+      ],
       "rules": {
         "@typescript-eslint/consistent-type-assertions": "off"
       }
     },
     {
-      "files": ["test-utils.tsx", "*/test/setup.ts"],
+      "files": [
+        "test-utils.tsx",
+        "*/test/setup.ts"
+      ],
       "rules": {
         "no-restricted-imports": [
           "error",
           {
             "patterns": [
               {
-                "group": ["@/features/*/*"],
+                "group": [
+                  "@/features/*/*"
+                ],
                 "message": "avoid importing from features"
               }
             ]
@@ -168,7 +226,10 @@
       }
     },
     {
-      "files": ["*.spec.tsx", "*.test.tsx"],
+      "files": [
+        "*.spec.tsx",
+        "*.test.tsx"
+      ],
       "rules": {
         "@next/next/no-img-element": "off"
       }
