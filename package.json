@@ -10,13 +10,14 @@
     "lint:fix": "pnpm lint --fix",
     "lint": "eslint src --max-warnings=0",
     "postinstall": "prisma generate",
-    "prepare": "husky install",
+    "prepare": "husky install && chmod ug+x .husky/*",
     "prisma:push": "prisma db push",
     "prisma:studio": "prisma studio",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "test:coverage": "vitest run --coverage",
     "test": "vitest",
+    "test:ci": "vitest --run --changed HEAD~1",
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "lint-staged": {

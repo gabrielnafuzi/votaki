@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpm run typecheck && pnpm run test
+pnpm run typecheck && pnpm run test:ci
