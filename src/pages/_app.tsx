@@ -1,4 +1,3 @@
-import type { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
 
@@ -10,22 +9,12 @@ import { Head } from '@/components/head'
 import { AppRouter } from '@/server/router'
 import twindConfig from '@/twind.config'
 
-type PageProps = {
-  session: Session
-}
-type AppPropsWithSession = Omit<AppProps, 'pageProps'> & {
-  pageProps: PageProps
-}
-
-const MyApp = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}: AppPropsWithSession) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head />
 
-      <SessionProvider session={session}>
+      <SessionProvider session={pageProps.session}>
         <Component {...pageProps} />
       </SessionProvider>
     </>
@@ -35,30 +24,22 @@ const MyApp = ({
 const TwindApp = withTwindApp(twindConfig, MyApp)
 
 const getBaseUrl = () => {
-  if (typeof window !== 'undefined') {
-    return ''
-  }
-
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}` // SSR should use vercel url
 
-  return `http://localhost:${process.env.PORT ?? 3000}` // dev SSR should use localhost
+  return 'http://localhost:3000' // dev SSR should use localhost
 }
 
 export default withTRPC<AppRouter>({
   config() {
-    /**
-     * If you want to use SSR, you need to use the server's full URL
-     * @link https://trpc.io/docs/ssr
-     */
     const url = `${getBaseUrl()}/api/trpc`
 
     return {
       url,
       transformer: superjson,
+      headers: {
+        'x-ssr': '1',
+      },
     }
   },
-  /**
-   * @link https://trpc.io/docs/ssr
-   */
-  ssr: false,
+  ssr: true,
 })(TwindApp)

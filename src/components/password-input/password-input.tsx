@@ -1,3 +1,5 @@
+import { forwardRef, ForwardRefRenderFunction } from 'react'
+
 import { useToggle } from '@/hooks/use-toggle'
 
 import { Input, InputProps } from '../input'
@@ -5,7 +7,10 @@ import { ToggleShowPasswordButton } from './partials/toggle-password-button'
 
 type PasswordInputProps = Omit<InputProps, 'type' | 'rightElement'>
 
-export const PasswordInput = ({ name, ...props }: PasswordInputProps) => {
+const BasePasswordInput: ForwardRefRenderFunction<
+  HTMLInputElement,
+  PasswordInputProps
+> = ({ name, ...props }, forwardedRef) => {
   const [showPassword, toggleShowPassword] = useToggle(false)
 
   return (
@@ -19,7 +24,10 @@ export const PasswordInput = ({ name, ...props }: PasswordInputProps) => {
           inputName={name}
         />
       }
+      ref={forwardedRef}
       {...props}
     />
   )
 }
+
+export const PasswordInput = forwardRef(BasePasswordInput)

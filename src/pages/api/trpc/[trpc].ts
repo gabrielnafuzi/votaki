@@ -5,5 +5,5 @@ import { createContext } from '@/server/router/context'
 
 export default createNextApiHandler({
   router: appRouter,
-  createContext: createContext,
+  createContext,
 })
