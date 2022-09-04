@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { tw } from 'twind'
 
 type SpinnerProps = {

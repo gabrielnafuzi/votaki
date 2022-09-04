@@ -65,14 +65,14 @@ describe('<Input />', () => {
     })
   })
 
-  it('be accessible with tab', () => {
+  it('be accessible with tab', async () => {
     render(<Input name="email" />)
 
     const input = screen.getByRole('textbox')
 
     expect(document.body).toHaveFocus()
 
-    userEvent.tab()
+    await userEvent.tab()
 
     expect(input).toHaveFocus()
   })

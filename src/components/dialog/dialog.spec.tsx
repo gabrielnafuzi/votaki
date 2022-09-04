@@ -6,13 +6,9 @@ import { mockComponentWithChildren, render, screen } from '@/utils/test-utils'
 
 import { DialogContent } from './dialog'
 
-vi.mock('@radix-ui/react-dialog', async () => {
-  const radixDialog = await vi.importActual<Record<string, unknown>>(
-    '@radix-ui/react-dialog'
-  )
-
+vi.mock('@radix-ui/react-dialog', () => {
   return {
-    ...radixDialog,
+    Trigger: mockComponentWithChildren,
     Root: mockComponentWithChildren,
     Portal: mockComponentWithChildren,
     Overlay: mockComponentWithChildren,

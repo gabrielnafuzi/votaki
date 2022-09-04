@@ -7,12 +7,13 @@ import { render, screen, waitFor } from '@/utils/test-utils'
 import { Avatar } from './avatar'
 
 vi.mock('@radix-ui/react-avatar', async () => {
-  const radixAvatar = await vi.importActual<Record<string, unknown>>(
-    '@radix-ui/react-avatar'
-  )
+  const { Avatar, AvatarFallback } = await vi.importActual<
+    Record<string, unknown>
+  >('@radix-ui/react-avatar')
 
   return {
-    ...radixAvatar,
+    Avatar,
+    AvatarFallback,
     AvatarImage: ({ alt, src }: { alt: string; src: string }) => (
       <img src={src} alt={alt} />
     ),
