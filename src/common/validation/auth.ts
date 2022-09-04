@@ -8,7 +8,14 @@ export const signInSchema = z.object({
 export const signUpSchema = signInSchema.extend({
   firstName: z.string().min(1, 'First name is required'),
   lastName: z.string().min(1, 'Last name is required'),
-  username: z.string().min(1, 'Username is required'),
+  username: z
+    .string()
+    .min(3, 'Username must be at least 3 characters')
+    .max(20, 'Username must be at most 20 characters')
+    .regex(
+      /^[a-zA-Z0-9_-]{3,20}$/,
+      'Invalid username, it can only contain letters, numbers, underscores, and dashes.'
+    ),
 })
 
 export const signUpSchemaWithConfirmPassword = signUpSchema

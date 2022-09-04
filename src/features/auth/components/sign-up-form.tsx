@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/button'
 import { Input } from '@/components/input'
 import { PasswordInput } from '@/components/password-input'
+import { Tooltip } from '@/components/tooltip'
 import { trpc } from '@/utils/trpc'
 
 export const SignUpForm = () => {
@@ -29,7 +30,10 @@ export const SignUpForm = () => {
 
   const onSubmit: SubmitHandler<SignUpSchemaWithConfirmPassword> = useCallback(
     async (data) => {
-      const result = await mutateAsync(data)
+      const result = await mutateAsync({
+        ...data,
+        username: data.username.toLowerCase(),
+      })
 
       if (result.status === 201) {
         await signIn('credentials', {
@@ -43,8 +47,11 @@ export const SignUpForm = () => {
   )
 
   return (
-    <form className={tw`space-y-4`} onSubmit={handleSubmit(onSubmit)}>
-      <div className={tw`grid grid-cols-2 gap-4`}>
+    <form
+      className={tw`space-y-2 md:space-y-4`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <div className={tw`grid md:grid-cols-2 gap-2 md:gap-4`}>
         <Input
           label="First name"
           errorMessage={errors.firstName?.message}
@@ -68,12 +75,19 @@ export const SignUpForm = () => {
         {...register('email')}
       />
 
-      <Input
-        label="Username"
-        errorMessage={errors.username?.message}
-        isInvalid={!!errors.username}
-        {...register('username')}
-      />
+      <Tooltip
+        side="top"
+        content="Use letters, numbers, underscore, and dashes only. This is for your profile url eg. https://votaki.nafuzi.dev/profiles/your-username"
+        className="max-w-xs text-center leading-4"
+        sideOffset={30}
+      >
+        <Input
+          label="Username"
+          errorMessage={errors.username?.message}
+          isInvalid={!!errors.username}
+          {...register('username')}
+        />
+      </Tooltip>
 
       <PasswordInput
         label="Password"
