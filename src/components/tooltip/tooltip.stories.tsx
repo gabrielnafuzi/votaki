@@ -15,6 +15,9 @@ export default {
     },
     content: { control: { type: 'text' } },
     children: { control: false },
+    delayDuration: { control: { type: 'number' } },
+    disableHoverableContent: { control: { type: 'boolean' } },
+    skipDelayDuration: { control: { type: 'number' } },
   },
   parameters: {
     layout: 'centered',
@@ -29,4 +32,7 @@ Default.args = {
   side: 'top',
   content: 'This is a tooltip',
   children: <Button>Hover me to see a tooltip</Button>,
+  delayDuration: 700,
+  disableHoverableContent: false,
+  skipDelayDuration: 300,
 }

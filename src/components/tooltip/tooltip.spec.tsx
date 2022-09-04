@@ -5,12 +5,8 @@ import { mockComponentWithChildren, render, screen } from '@/utils/test-utils'
 import { Tooltip } from './tooltip'
 
 vi.mock('@radix-ui/react-tooltip', async () => {
-  const radixTooltip = await vi.importActual<Record<string, unknown>>(
-    '@radix-ui/react-popover'
-  )
-
   return {
-    ...radixTooltip,
+    TooltipProvider: mockComponentWithChildren,
     Root: mockComponentWithChildren,
     Trigger: mockComponentWithChildren,
     Content: mockComponentWithChildren,

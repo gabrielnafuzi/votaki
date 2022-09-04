@@ -6,7 +6,8 @@ import { ANIMATIONS } from '@/styles/animations-enum'
 type TooltipProps = {
   content: React.ReactNode
 } & TooltipPrimitive.TooltipProps &
-  TooltipPrimitive.TooltipContentProps
+  TooltipPrimitive.TooltipContentProps &
+  TooltipPrimitive.TooltipProviderProps
 
 const animations: Record<Exclude<TooltipProps['side'], undefined>, string> = {
   top: ANIMATIONS.SLIDE_DOWN_AND_FADE,
@@ -23,6 +24,9 @@ export const Tooltip = ({
   onOpenChange,
   side = 'top',
   className,
+  delayDuration,
+  disableHoverableContent,
+  skipDelayDuration,
   ...props
 }: TooltipProps) => {
   const contentClasses = tw`
@@ -31,24 +35,30 @@ export const Tooltip = ({
   `
 
   return (
-    <TooltipPrimitive.Root
-      open={open}
-      defaultOpen={defaultOpen}
-      onOpenChange={onOpenChange}
+    <TooltipPrimitive.TooltipProvider
+      delayDuration={delayDuration}
+      disableHoverableContent={disableHoverableContent}
+      skipDelayDuration={skipDelayDuration}
     >
-      <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
-
-      <TooltipPrimitive.Content
-        side={side}
-        align="center"
-        className={contentClasses}
-        sideOffset={5}
-        {...props}
+      <TooltipPrimitive.Root
+        open={open}
+        defaultOpen={defaultOpen}
+        onOpenChange={onOpenChange}
       >
-        {content}
+        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
 
-        <TooltipPrimitive.Arrow className={tw`text-gray-700 fill-current`} />
-      </TooltipPrimitive.Content>
-    </TooltipPrimitive.Root>
+        <TooltipPrimitive.Content
+          side={side}
+          align="center"
+          className={contentClasses}
+          sideOffset={5}
+          {...props}
+        >
+          {content}
+
+          <TooltipPrimitive.Arrow className={tw`text-gray-700 fill-current`} />
+        </TooltipPrimitive.Content>
+      </TooltipPrimitive.Root>
+    </TooltipPrimitive.TooltipProvider>
   )
 }
