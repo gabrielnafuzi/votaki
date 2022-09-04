@@ -48,8 +48,8 @@ export const nextAuthOptions: NextAuthOptions = {
       return token
     },
     session: async ({ session, token }) => {
-      if (token) {
-        session.id = token.id
+      if (token && session.user) {
+        session.user.id = token.id as string
       }
 
       return session

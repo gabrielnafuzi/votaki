@@ -2,11 +2,11 @@ import superjson from 'superjson'
 
 import { authRouter } from './auth'
 import { createRouter } from './context'
-import { exampleRouter } from './example'
+import { userRouter } from './user'
 
 export const appRouter = createRouter()
   .transformer(superjson)
-  .merge('example.', exampleRouter)
   .merge('auth.', authRouter)
+  .merge('user.', userRouter)
 
 export type AppRouter = typeof appRouter
