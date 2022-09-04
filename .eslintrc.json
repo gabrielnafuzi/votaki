@@ -198,6 +198,26 @@
   "overrides": [
     {
       "files": [
+        "src/pages/**/*.tsx"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@testing-library/*"
+                ],
+                "message": "Please use @/utils/test-utils instead."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
         "*.stories.tsx"
       ],
       "rules": {
