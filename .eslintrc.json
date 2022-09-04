@@ -55,6 +55,12 @@
               "@testing-library/*"
             ],
             "message": "Please use @/utils/test-utils instead."
+          },
+          {
+            "group": [
+              "next/head"
+            ],
+            "message": "Please use @/components/head instead."
           }
         ]
       }
@@ -253,6 +259,32 @@
       ],
       "rules": {
         "@next/next/no-img-element": "off"
+      }
+    },
+    {
+      "files": [
+        "src/components/head/head.tsx"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "@/features/*/*"
+                ],
+                "message": "avoid importing from features"
+              },
+              {
+                "group": [
+                  "@testing-library/*"
+                ],
+                "message": "Please use @/utils/test-utils instead."
+              }
+            ]
+          }
+        ]
       }
     }
   ]

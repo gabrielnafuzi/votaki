@@ -6,6 +6,7 @@ import { withTRPC } from '@trpc/next'
 import withTwindApp from '@twind/next/app'
 import superjson from 'superjson'
 
+import { Head } from '@/components/head'
 import { AppRouter } from '@/server/router'
 import twindConfig from '@/twind.config'
 
@@ -21,9 +22,13 @@ const MyApp = ({
   pageProps: { session, ...pageProps },
 }: AppPropsWithSession) => {
   return (
-    <SessionProvider session={session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <>
+      <Head />
+
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
+    </>
   )
 }
 

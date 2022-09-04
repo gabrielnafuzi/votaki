@@ -20,13 +20,13 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          <body>
-            <Main />
+        <Head />
 
-            <NextScript />
-          </body>
-        </Head>
+        <body>
+          <Main />
+
+          <NextScript />
+        </body>
       </Html>
     )
   }
