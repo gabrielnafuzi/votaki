@@ -226,8 +226,9 @@
     },
     {
       "files": [
-        "test-utils.tsx",
-        "*/test/setup.ts"
+        "**/test-utils/*.ts",
+        "**/test-utils/*.tsx",
+        "**/test/setup.ts"
       ],
       "rules": {
         "no-restricted-imports": [

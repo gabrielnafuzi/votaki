@@ -11,7 +11,7 @@ import { FormErrorMessage } from '../form-error-message'
 import { Label } from '../label'
 import * as classes from './input.styles'
 
-type InputProps = {
+export type InputProps = {
   errorMessage?: string
   isInvalid?: boolean
   label?: string

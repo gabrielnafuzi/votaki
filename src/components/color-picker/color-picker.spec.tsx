@@ -1,10 +1,11 @@
 import { expect, it, describe, vi } from 'vitest'
 
 import {
+  click,
   mockComponentWithChildren,
+  press,
   render,
   screen,
-  userEvent,
 } from '@/utils/test-utils'
 
 import { pollColors } from '../common'
@@ -38,7 +39,7 @@ describe('<ColorPicker />', () => {
 
     const colorButton = getColorOptionElement(pollColors[2])
 
-    await userEvent.click(colorButton)
+    await click(colorButton)
 
     expect(onChange).toHaveBeenCalledWith(pollColors[2])
   })
@@ -50,13 +51,13 @@ describe('<ColorPicker />', () => {
 
     expect(document.body).toHaveFocus()
 
-    await userEvent.tab() // selects the trigger button
-    await userEvent.tab() // selects the first color option
+    await press.Tab() // selects the trigger button
+    await press.Tab() // selects the first color option
 
     expect(getColorOptionElement(pollColors[0])).toHaveFocus()
 
-    await userEvent.tab() // selects the second color option
-    await userEvent.keyboard('{enter}')
+    await press.Tab() // selects the second color option
+    await press.Enter()
 
     expect(onChange).toHaveBeenCalledWith(pollColors[1])
   })

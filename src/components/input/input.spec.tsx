@@ -1,10 +1,19 @@
 import { expect, it, describe, vi } from 'vitest'
 
-import { render, screen, userEvent, waitFor } from '@/utils/test-utils'
+import { press, render, screen, typeOnElement } from '@/utils/test-utils'
 
 import { Input } from './input'
 
 describe('<Input />', () => {
+  const typeEmail = async () => {
+    const input = screen.getByRole('textbox')
+    const text = 'doe@mail.com'
+
+    await typeOnElement(input, text)
+
+    return { input, text }
+  }
+
   it('renders with label', () => {
     render(<Input label="Email" name="email" />)
 
@@ -38,15 +47,10 @@ describe('<Input />', () => {
 
     render(<Input name="email" onChange={onChange} />)
 
-    const input = screen.getByRole('textbox')
-    const text = 'doe@mail.com'
+    const { text, input } = await typeEmail()
 
-    userEvent.type(input, text)
-
-    await waitFor(() => {
-      expect(input).toHaveValue(text)
-      expect(onChange).toHaveBeenCalledTimes(text.length)
-    })
+    expect(input).toHaveValue(text)
+    expect(onChange).toHaveBeenCalledTimes(text.length)
   })
 
   it("doesn't change the input's value when is disabled", async () => {
@@ -54,15 +58,10 @@ describe('<Input />', () => {
 
     render(<Input name="email" onChange={onChange} disabled />)
 
-    const input = screen.getByRole('textbox')
-    const text = 'doe@mail.com'
+    const { input } = await typeEmail()
 
-    userEvent.type(input, text)
-
-    await waitFor(() => {
-      expect(input).toHaveValue('')
-      expect(onChange).not.toHaveBeenCalled()
-    })
+    expect(input).toHaveValue('')
+    expect(onChange).not.toHaveBeenCalled()
   })
 
   it('be accessible with tab', async () => {
@@ -72,7 +71,7 @@ describe('<Input />', () => {
 
     expect(document.body).toHaveFocus()
 
-    await userEvent.tab()
+    await press.Tab()
 
     expect(input).toHaveFocus()
   })

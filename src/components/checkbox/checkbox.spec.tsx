@@ -1,6 +1,6 @@
 import { expect, it, describe, vi } from 'vitest'
 
-import { render, screen, userEvent } from '@/utils/test-utils'
+import { click, render, screen } from '@/utils/test-utils'
 
 import { Checkbox } from './checkbox'
 
@@ -25,10 +25,10 @@ describe('<Checkbox />', () => {
 
     const label = screen.getByLabelText('Test checkbox')
 
-    await userEvent.click(label)
+    await click(label)
     expect(onCheckedChange).toHaveBeenCalledWith(true)
 
-    await userEvent.click(label)
+    await click(label)
     expect(onCheckedChange).toHaveBeenCalledWith(false)
   })
 })
