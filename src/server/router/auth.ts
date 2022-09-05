@@ -17,7 +17,7 @@ export const authRouter = createRouter().mutation('sign-up', {
     if (exists) {
       throw new trpc.TRPCError({
         code: 'CONFLICT',
-        message: 'User already exists.',
+        message: 'This email address is already being used.',
       })
     }
 
@@ -28,7 +28,7 @@ export const authRouter = createRouter().mutation('sign-up', {
     if (existsUsername) {
       throw new trpc.TRPCError({
         code: 'CONFLICT',
-        message: 'Username is already in use.',
+        message: 'This username is already being used.',
       })
     }
 

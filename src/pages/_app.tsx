@@ -10,6 +10,7 @@ import superjson from 'superjson'
 import { Head } from '@/components/head'
 import { AppRouter } from '@/server/router'
 import twindConfig from '@/twind.config'
+import { Toaster } from '@/utils/toast'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -19,6 +20,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <SessionProvider session={pageProps.session}>
         <Component {...pageProps} />
       </SessionProvider>
+
+      <Toaster />
     </>
   )
 }

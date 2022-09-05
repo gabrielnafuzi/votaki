@@ -15,6 +15,7 @@ import { Button } from '@/components/button'
 import { Input } from '@/components/input'
 import { PasswordInput } from '@/components/password-input'
 import { Tooltip } from '@/components/tooltip'
+import { toast } from '@/utils/toast'
 import { trpc } from '@/utils/trpc'
 
 export const SignUpForm = () => {
@@ -26,7 +27,11 @@ export const SignUpForm = () => {
     resolver: zodResolver(signUpSchemaWithConfirmPassword),
   })
 
-  const { mutateAsync } = trpc.useMutation(['auth.sign-up'])
+  const { mutateAsync } = trpc.useMutation(['auth.sign-up'], {
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
 
   const onSubmit: SubmitHandler<SignUpSchemaWithConfirmPassword> = useCallback(
     async (data) => {

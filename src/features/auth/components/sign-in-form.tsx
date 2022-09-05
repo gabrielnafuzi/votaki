@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { tw } from 'twind'
@@ -11,8 +12,11 @@ import { signInSchema, SignInSchema } from '@/common/validation/auth'
 import { Button } from '@/components/button'
 import { Input } from '@/components/input'
 import { PasswordInput } from '@/components/password-input'
+import { toast } from '@/utils/toast'
 
 export const SignInForm = () => {
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
@@ -21,12 +25,26 @@ export const SignInForm = () => {
     resolver: zodResolver(signInSchema),
   })
 
-  const onSubmit: SubmitHandler<SignInSchema> = useCallback(async (data) => {
-    await signIn('credentials', {
-      ...data,
-      callbackUrl: '/me/dashboard',
-    })
-  }, [])
+  const onSubmit: SubmitHandler<SignInSchema> = useCallback(
+    async (data) => {
+      const resp = await signIn('credentials', {
+        ...data,
+        callbackUrl: '/me/dashboard',
+        redirect: false,
+      })
+
+      if (resp?.status === 200) {
+        router.push('/me/dashboard')
+
+        return
+      }
+
+      if (resp?.error) {
+        toast.error('Email or password is incorrect.')
+      }
+    },
+    [router]
+  )
 
   return (
     <form className={tw`space-y-4`} onSubmit={handleSubmit(onSubmit)}>
