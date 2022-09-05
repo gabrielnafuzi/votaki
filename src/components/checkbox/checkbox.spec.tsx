@@ -1,6 +1,6 @@
 import { expect, it, describe, vi } from 'vitest'
 
-import { click, render, screen } from '@/utils/test-utils'
+import { click, render, screen } from '@/test/test-utils'
 
 import { Checkbox } from './checkbox'
 

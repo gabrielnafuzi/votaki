@@ -2,7 +2,7 @@ import React from 'react'
 
 import { expect, it, describe, vi } from 'vitest'
 
-import { mockComponentWithChildren, render, screen } from '@/utils/test-utils'
+import { mockComponentWithChildren, render, screen } from '@/test/test-utils'
 
 import { DialogContent } from './dialog'
 

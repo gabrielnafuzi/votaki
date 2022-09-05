@@ -1,6 +1,6 @@
 import { expect, it, describe } from 'vitest'
 
-import { render, screen } from '@/utils/test-utils'
+import { render, screen } from '@/test/test-utils'
 
 import { FormErrorMessage } from './form-error-message'
 

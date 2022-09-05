@@ -6,7 +6,7 @@ import {
   press,
   render,
   screen,
-} from '@/utils/test-utils'
+} from '@/test/test-utils'
 
 import { pollColors } from '../common'
 import { ColorPicker } from './color-picker'

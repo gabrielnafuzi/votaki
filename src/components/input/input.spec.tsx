@@ -1,6 +1,6 @@
 import { expect, it, describe, vi } from 'vitest'
 
-import { press, render, screen, typeOnElement } from '@/utils/test-utils'
+import { press, render, screen, typeOnElement } from '@/test/test-utils'
 
 import { Input } from './input'
 

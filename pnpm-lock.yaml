@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@faker-js/faker': ^7.5.0
   '@hookform/resolvers': ^2.9.7
   '@next-auth/prisma-adapter': ^1.0.4
   '@prisma/client': ^4.3.1
@@ -101,6 +102,7 @@ dependencies:
   zod: 3.18.0
 
 devDependencies:
+  '@faker-js/faker': 7.5.0
   '@storybook/addon-actions': 6.5.10_biqbaboplfbrettd7655fr4n2y
   '@storybook/addon-essentials': 6.5.10_2wtoanqjxejlvrmzkyq4gkatty
   '@storybook/addon-interactions': 6.5.10_e64i6yi2bzi5ltvvxmfyaiafya
@@ -3661,6 +3663,11 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@faker-js/faker/7.5.0:
+    resolution: {integrity: sha512-8wNUCCUHvfvI0gQpDUho/3gPzABffnCn5um65F8dzQ86zz6dlt4+nmAA7PQUc8L+eH+9RgR/qzy5N/8kN0Ozdw==}
+    engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     dev: true
 
   /@floating-ui/core/0.7.3:

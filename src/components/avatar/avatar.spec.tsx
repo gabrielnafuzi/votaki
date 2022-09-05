@@ -2,7 +2,7 @@ import React from 'react'
 
 import { expect, it, describe, vi } from 'vitest'
 
-import { render, screen, waitFor } from '@/utils/test-utils'
+import { render, screen, waitFor } from '@/test/test-utils'
 
 import { Avatar } from './avatar'
 

@@ -54,7 +54,7 @@
             "group": [
               "@testing-library/*"
             ],
-            "message": "Please use @/utils/test-utils instead."
+            "message": "Please use @/test/test-utils instead."
           },
           {
             "group": [
@@ -215,7 +215,7 @@
                 "group": [
                   "@testing-library/*"
                 ],
-                "message": "Please use @/utils/test-utils instead."
+                "message": "Please use @/test/test-utils instead."
               }
             ]
           }
@@ -258,7 +258,8 @@
         "*.test.tsx"
       ],
       "rules": {
-        "@next/next/no-img-element": "off"
+        "@next/next/no-img-element": "off",
+        "@typescript-eslint/no-explicit-any": "off"
       }
     },
     {
@@ -280,7 +281,7 @@
                 "group": [
                   "@testing-library/*"
                 ],
-                "message": "Please use @/utils/test-utils instead."
+                "message": "Please use @/test/test-utils instead."
               }
             ]
           }

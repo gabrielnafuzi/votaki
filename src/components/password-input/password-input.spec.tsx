@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { click, press, render, screen } from '@/utils/test-utils'
+import { click, press, render, screen } from '@/test/test-utils'
 
 import { PasswordInput } from './password-input'
 

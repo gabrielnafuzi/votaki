@@ -29,7 +29,6 @@ export const SignInForm = () => {
     async (data) => {
       const resp = await signIn('credentials', {
         ...data,
-        callbackUrl: '/me/dashboard',
         redirect: false,
       })
 

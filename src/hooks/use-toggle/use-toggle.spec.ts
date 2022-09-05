@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 
-import { act, renderHook } from '@/utils/test-utils'
+import { act, renderHook } from '@/test/test-utils'
 
 import { useToggle } from './use-toggle'
 
