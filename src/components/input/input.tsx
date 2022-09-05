@@ -44,7 +44,11 @@ const BaseInput: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       <div className={inputWrapperClasses}>
         <input
           ref={forwardedRef}
-          className={tw(classes.input, disabledStyles)}
+          className={tw(
+            classes.input,
+            disabledStyles,
+            !!rightElement && 'pr-0'
+          )}
           disabled={disabled}
           name={name}
           {...(label ? { id: name } : {})}

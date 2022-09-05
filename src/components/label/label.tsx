@@ -13,7 +13,7 @@ export const Label = ({
   return (
     <LabelPrimitive.Root
       className={tw(
-        apply`block mb-1 text-sm font-medium text-gray-700 cursor-default
+        apply`block mb-1 text-sm font-medium text-gray-700 cursor-default max-w-max
         ${isInvalid && 'text-error'}`
       )}
       {...props}

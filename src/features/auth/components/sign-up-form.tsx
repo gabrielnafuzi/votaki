@@ -72,6 +72,7 @@ export const SignUpForm = () => {
         type="email"
         errorMessage={errors.email?.message}
         isInvalid={!!errors.email}
+        autoComplete="username"
         {...register('email')}
       />
 
