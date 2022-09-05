@@ -6,9 +6,8 @@ import { CloseButton } from './close-button'
 
 describe('<CloseButton />', () => {
   it('renders correctly', () => {
-    const { container } = render(<CloseButton />)
+    render(<CloseButton />)
 
     expect(screen.getByRole('button')).toBeInTheDocument()
-    expect(container.firstChild).toMatchSnapshot()
   })
 })
