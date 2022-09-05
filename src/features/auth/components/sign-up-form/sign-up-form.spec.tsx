@@ -9,14 +9,17 @@ import {
   screen,
   typeOnElement,
   mockComponentWithChildren,
-  waitFor,
 } from '@/test/test-utils'
 import { trpc } from '@/utils/trpc'
 
 import { SignUpForm } from './sign-up-form'
 
 vi.mock('next-auth/react', () => ({
-  signIn: vi.fn().mockResolvedValue({ status: 200 }),
+  signIn: vi.fn().mockImplementation(() =>
+    Promise.resolve({
+      status: 200,
+    })
+  ),
 }))
 
 vi.mock('@/components/tooltip', () => ({
@@ -85,12 +88,10 @@ describe('<SignUpForm />', () => {
       username: newUser.username.toLowerCase(),
     })
 
-    await waitFor(() =>
-      expect(signIn).toHaveBeenCalledWith('credentials', {
-        email: newUser.email,
-        password: newUser.password,
-        callbackUrl: '/me/dashboard',
-      })
-    )
+    expect(signIn).toHaveBeenCalledWith('credentials', {
+      email: newUser.email,
+      password: newUser.password,
+      callbackUrl: '/me/dashboard',
+    })
   })
 })
