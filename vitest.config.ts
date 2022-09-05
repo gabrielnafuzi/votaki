@@ -38,5 +38,11 @@ export default defineConfig({
       '**/coverage/**',
       '**/.{idea,git,cache,output,temp}/**',
     ],
+    env: {
+      DATABASE_URL: 'https://localhost:8080',
+      NEXTAUTH_SECRET: 'secret',
+      NEXTAUTH_URL: 'https://localhost:8080',
+      JWT_SECRET: 'secret',
+    },
   },
 })

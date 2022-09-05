@@ -1,4 +1,4 @@
-import { createProtectedRouter } from './protected-router'
+import { createProtectedRouter } from '../create-protected-router'
 
 export const userRouter = createProtectedRouter().query('me', {
   async resolve({ ctx }) {

@@ -1,3 +1,5 @@
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
 
@@ -22,6 +24,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       </SessionProvider>
 
       <Toaster />
+
+      {process.env.NODE_ENV !== 'production' && (
+        <ReactQueryDevtools initialIsOpen={false} />
+      )}
     </>
   )
 }

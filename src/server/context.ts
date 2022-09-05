@@ -5,10 +5,10 @@ import * as trpcNext from '@trpc/server/adapters/next'
 
 import { getServerAuthSession } from '@/common/get-server-auth-session'
 
-import { prisma } from '../db/client'
+import { prisma } from './db/client'
 
 type CreateContextOptions = {
-  session: Session | null
+  session?: Session | null
 }
 
 /** Use this helper for:
@@ -38,6 +38,4 @@ export const createContext = async (
   }
 }
 
-type Context = trpc.inferAsyncReturnType<typeof createContext>
-
-export const createRouter = () => trpc.router<Context>()
+export type Context = trpc.inferAsyncReturnType<typeof createContext>

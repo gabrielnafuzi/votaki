@@ -3,7 +3,7 @@ import { hash } from 'argon2'
 
 import { signUpSchema } from '@/common/validation/auth'
 
-import { createRouter } from './context'
+import { createRouter } from '../create-router'
 
 export const authRouter = createRouter().mutation('sign-up', {
   input: signUpSchema,
