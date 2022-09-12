@@ -1,0 +1,31 @@
+import { PollCategory } from '@prisma/client'
+import * as colors from 'twind/colors'
+
+export const categories: Array<Omit<PollCategory, 'id'>> = [
+  { name: 'Animals', color: colors.amber[300] },
+  { name: 'Art', color: colors.blue[500] },
+  { name: 'Books', color: colors.blueGray[400] },
+  { name: 'Colour', color: colors.coolGray[800] },
+  { name: 'Crypto', color: colors.cyan[500] },
+  { name: 'Days', color: colors.emerald[500] },
+  { name: 'Drink', color: colors.fuchsia[500] },
+  { name: 'Food', color: colors.teal[800] },
+  { name: 'Gaming', color: colors.green[500] },
+  { name: 'Healthcare', color: colors.indigo[500] },
+  { name: 'History', color: colors.lightBlue[500] },
+  { name: 'Investment', color: colors.lime[300] },
+  { name: 'Mobile Development', color: colors.orange[500] },
+  { name: 'Movies', color: colors.pink[500] },
+  { name: 'Music', color: colors.purple[600] },
+  { name: 'News', color: colors.red[600] },
+  { name: 'Politics', color: colors.rose[400] },
+  { name: 'Random', color: colors.sky[700] },
+  { name: 'Science', color: colors.teal[500] },
+  { name: 'Social', color: colors.trueGray[400] },
+  { name: 'Sport', color: colors.violet[800] },
+  { name: 'Startup', color: colors.warmGray[600] },
+  { name: 'Tv', color: colors.yellow[500] },
+  { name: 'Web Design', color: colors.cyan[700] },
+  { name: 'Web Development', color: colors.indigo[800] },
+  { name: 'Week', color: colors.amber[800] },
+]
