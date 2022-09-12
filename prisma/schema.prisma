@@ -12,13 +12,55 @@ datasource db {
     referentialIntegrity = "prisma"
 }
 
+enum PollStatus {
+    PUBLISHED
+    DRAFT
+    ENDED
+}
+
+enum PollVisibility {
+    PRIVATE
+    PUBLIC
+}
+
+model PollOption {
+    id             String       @id @default(cuid())
+    text           String
+    votes          Int          @default(0)
+    color          String
+    image          String
+    pollQuestionId String
+    PollQuestion   PollQuestion @relation(fields: [pollQuestionId], references: [id])
+
+    @@unique([text, pollQuestionId])
+}
+
+model PollCategory {
+    id           String         @id @default(cuid())
+    name         String         @unique
+    color        String
+    PollQuestion PollQuestion[]
+}
+
 model PollQuestion {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
+    updatedAt DateTime @default(now())
 
     endsAt DateTime?
 
-    question String
+    question   String         @db.VarChar(5000)
+    options    PollOption[]
+    visibility PollVisibility
+    status     PollStatus
+    categoryId String
+    category   PollCategory   @relation(fields: [categoryId], references: [id])
+
+    allowMultipleVotes Boolean @default(false)
+    loginToVote        Boolean @default(false)
+    allowComments      Boolean @default(false)
+    enableCaptcha      Boolean @default(false)
+    hideShare          Boolean @default(false)
 }
 
 // Necessary for Next auth
