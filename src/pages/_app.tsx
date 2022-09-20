@@ -1,5 +1,6 @@
 import { ReactQueryDevtools } from 'react-query/devtools'
 
+import type { Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
 
@@ -14,7 +15,7 @@ import { AppRouter } from '@/server/router'
 import twindConfig from '@/twind.config'
 import { Toaster } from '@/utils/toast'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps<{ session: Session }>) => {
   return (
     <>
       <Head />
