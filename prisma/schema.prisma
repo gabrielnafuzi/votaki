@@ -61,6 +61,8 @@ model PollQuestion {
     allowComments      Boolean @default(false)
     enableCaptcha      Boolean @default(false)
     hideShare          Boolean @default(false)
+    User               User?   @relation(fields: [userId], references: [id])
+    userId             String?
 }
 
 // Necessary for Next auth
@@ -91,18 +93,19 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String         @id @default(cuid())
     firstName     String
     lastName      String
-    email         String    @unique
+    email         String         @unique
     emailVerified DateTime?
     image         String?
-    username      String    @unique
+    username      String         @unique
     password      String
-    createdAt     DateTime  @default(now())
-    updatedAt     DateTime  @updatedAt
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
     Account       Account[]
     Session       Session[]
+    pollQuestions PollQuestion[]
 }
 
 model VerificationToken {
