@@ -49,6 +49,8 @@
     "@twind/forms": "^0.1.4",
     "@twind/next": "^1.0.9",
     "argon2": "^0.29.1",
+    "firebase": "^9.10.0",
+    "nanoid": "^4.0.0",
     "next": "12.3.0",
     "next-auth": "^4.10.3",
     "polished": "^4.2.2",
